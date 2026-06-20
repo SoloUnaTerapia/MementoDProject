@@ -6,10 +6,8 @@ public interface CombatEntity {
     String getName();
     int getSanity();
     int getMaxSanity();
-    int getFocus();
-    int getMaxFocus();
+
     void takeDamage(int amount);
-    void consumeFocus(int amount); //consuma i punti focus necessari per eseguire una mossa abilità
     void recoverSanity(int amount);
-    boolean isConscious(); //restituisce true se l'entità è ancora viva
+    boolean isConscious();
 }

@@ -69,6 +69,6 @@ public class CombatManager {
 
         int damage = enemy.getBaseDamage();
         player.takeDamage(damage);
-        return "L'ombra " + enemy.getName() + " attacca! Infligge " + damage + " danni alla sanità mentale di " + player.getName();
+        return "L'ombra " + enemy.getName() + " attacca! Infligge " + damage + " punti danno alla sanità mentale di " + player.getName();
     }
 }

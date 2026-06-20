@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="it.unicam.cs.mpgc.rpg125730.controller.GameViewController" style="-fx-background-color: #1a1a1a;">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- TOP: Statistiche -->
+    <top>
+        <VBox spacing="10" alignment="CENTER">
+            <Label fx:id="roomLabel" text="Stanza: 1" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+
+            <Label fx:id="playerStatsLabel" text="Diver - Sanity | Focus" style="-fx-text-fill: white;"/>
+            <ProgressBar fx:id="playerSanityBar" progress="1.0" prefWidth="300" style="-fx-accent: red;"/>
+            <ProgressBar fx:id="playerFocusBar" progress="1.0" prefWidth="300" style="-fx-accent: blue;"/>
+
+            <Label fx:id="enemyStatsLabel" text="Ombra - Sanity" style="-fx-text-fill: white;"/>
+            <ProgressBar fx:id="enemySanityBar" progress="1.0" prefWidth="300" style="-fx-accent: darkred;"/>
+        </VBox>
+    </top>
+
+    <!-- CENTER: Log di combattimento -->
+    <center>
+        <TextArea fx:id="combatLogArea" editable="false" wrapText="true"
+                  style="-fx-control-inner-background: #000000; -fx-text-fill: #00ffcc; -fx-font-family: 'Consolas'; -fx-font-size: 14px;">
+            <BorderPane.margin>
+                <Insets top="20" bottom="20"/>
+            </BorderPane.margin>
+        </TextArea>
+    </center>
+
+    <!-- BOTTOM: Bottoni -->
+    <bottom>
+        <HBox spacing="15" alignment="CENTER">
+            <Button text="Attacco Fisico" onAction="#onPhysicalAttack" prefWidth="150" prefHeight="40" style="-fx-background-color: #444444; -fx-text-fill: white;"/>
+            <Button text="Abilità Fuoco" onAction="#onFireSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #cc0000; -fx-text-fill: white;"/>
+            <Button text="Abilità Ghiaccio" onAction="#onIceSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #0066cc; -fx-text-fill: white;"/>
+            <Button text="Stabilizza" onAction="#onHeal" prefWidth="150" prefHeight="40" style="-fx-background-color: #009933; -fx-text-fill: white;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -38,7 +38,6 @@ public class GameController {
         this.currentShadow = new Shadow(
                 "Pixie",
                 40 + (roomLevel*5),  //la vita aumenta con i livelli
-                20,
                 8 + roomLevel,         //il danno aumenta
                 Element.FIRE,          //debole al fuoco
                 Element.ICE            //resiste al ghiaccio

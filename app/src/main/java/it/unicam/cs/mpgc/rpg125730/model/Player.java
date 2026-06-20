@@ -24,10 +24,10 @@ public class Player implements CombatEntity {
     @Override
     public int getMaxSanity() { return maxSanity; }
 
-    @Override
+
     public int getFocus() { return focus; }
 
-    @Override
+
     public int getMaxFocus() { return maxFocus; }
 
     @Override
@@ -37,13 +37,18 @@ public class Player implements CombatEntity {
         if (this.sanity < 0) this.sanity = 0;
     }
 
-    @Override
     public void consumeFocus(int amount) {
         if (amount > 0 && this.focus >= amount) {
             this.focus -= amount;
         }
     }
-
+    public void recoverFocus(int amount) {
+        if (amount < 0) return;
+        this.focus += amount;
+        if (this.focus > maxFocus) {
+            this.focus = maxFocus;
+        }
+    }
     @Override
     public void recoverSanity(int amount) {
         if (amount < 0) return;
