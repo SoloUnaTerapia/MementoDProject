@@ -51,7 +51,7 @@ public class CombatManager {
      */
     public String executeStabilize(Player player, int focusCost, int healAmount) {
         if (player.getFocus() < focusCost) {
-            return "Non hai abbastanza Focus per rigenerare sanità mentale";
+            return "Non hai abbastanza Focus per rigenerare salute mentale";
         }
 
         player.consumeFocus(focusCost);
