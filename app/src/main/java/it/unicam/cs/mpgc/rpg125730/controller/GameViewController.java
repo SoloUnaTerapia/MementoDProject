@@ -85,6 +85,18 @@ public class GameViewController {
     }
 
     @FXML
+    public void onCognitiveSkill() {
+        int cost = 20;
+        if (player.getFocus() < cost) {
+            combatLogArea.appendText("\nNon hai abbastanza Focus per il Sovraccarico Cognitivo!\n");
+            return;
+        }
+       
+        String log = combatManager.executeElementalAttack(player, currentShadow, Element.COGNITIVE, cost, 30);
+        processTurn(log, true);
+    }
+
+    @FXML
     public void onHeal() {
         int cost = 15;
         if (player.getFocus() < cost) {
