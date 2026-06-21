@@ -13,7 +13,7 @@ public class CombatManager {
      */
     public String executePhysicalAttack(CombatEntity attacker, CombatEntity target, int baseDamage) {
         target.takeDamage(baseDamage);
-        return attacker.getName() + " sferra un attacco fisico! Infligge " + baseDamage + " danni a " + target.getName() + ".";
+        return attacker.getName() + " sferra un attacco fisico! Infligge " + baseDamage + " danni a " + target.getName();
     }
 
     /**
@@ -34,7 +34,7 @@ public class CombatManager {
         if (target.getWeakness() == attackElement) {
             finalDamage*=2; // Danno raddoppiato
             logMessage+= "\ncolpo critico, colpita la debolezza ";
-        } else if (target.getResistance() == attackElement) {
+        } else if (target.getResistance()==attackElement) {
             finalDamage /= 2; // Danno dimezzato
             logMessage += "\nIl bersaglio resiste all'attacco... ";
         }

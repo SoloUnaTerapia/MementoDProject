@@ -11,6 +11,12 @@
     <!-- TOP: Statistiche -->
     <top>
         <VBox spacing="10" alignment="CENTER">
+            <!-- Nuova pulsantiera per i salvataggi -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Salva Partita" onAction="#onSaveGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
+                <Button text="Carica Partita" onAction="#onLoadGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
+            </HBox>
+
             <Label fx:id="roomLabel" text="Stanza: 1" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
 
             <Label fx:id="playerStatsLabel" text="Diver - Sanity | Focus" style="-fx-text-fill: white;"/>
