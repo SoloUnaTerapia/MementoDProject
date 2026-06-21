@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Pixie",
+    "baseHp": 40,
+    "baseDamage": 8,
+    "weakness": "FIRE",
+    "resistance": "ICE"
+  },
+  {
+    "name": "Jack Frost",
+    "baseHp": 50,
+    "baseDamage": 10,
+    "weakness": "FIRE",
+    "resistance": "PHYSICAL"
+  },
+  {
+    "name": "Incubus",
+    "baseHp": 45,
+    "baseDamage": 12,
+    "weakness": "ICE",
+    "resistance": "COGNITIVE"
+  }
+]

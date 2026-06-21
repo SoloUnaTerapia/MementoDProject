@@ -6,6 +6,7 @@ import it.unicam.cs.mpgc.rpg125730.model.Shadow;
 import it.unicam.cs.mpgc.rpg125730.service.CombatManager;
 import it.unicam.cs.mpgc.rpg125730.dto.GameStateDTO;
 import it.unicam.cs.mpgc.rpg125730.persistence.PersistenceService;
+import it.unicam.cs.mpgc.rpg125730.service.ShadowFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -16,6 +17,7 @@ public class GameViewController {
 
     private final CombatManager combatManager;
     private final PersistenceService persistenceService;
+    private final ShadowFactory shadowFactory;
     private Player player;
     private Shadow currentShadow;
     private int roomLevel = 1;
@@ -31,6 +33,7 @@ public class GameViewController {
     public GameViewController(CombatManager combatManager, PersistenceService persistenceService) {
         this.combatManager = combatManager;
         this.persistenceService = persistenceService;
+        this.shadowFactory = new ShadowFactory();
     }
 
     @FXML
@@ -47,7 +50,7 @@ public class GameViewController {
     }
 
     private void spawnEnemy() {  //per prova 1 nemico solo fisso
-        this.currentShadow = new Shadow("Pixie", 40 + (roomLevel * 5), 8 + roomLevel, Element.FIRE, Element.ICE);
+        this.currentShadow = shadowFactory.generateRandomShadow(roomLevel);
     }
 
     // --- AZIONI BOTTONI ---
