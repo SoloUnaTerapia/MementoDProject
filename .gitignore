@@ -7,3 +7,7 @@ build
 .idea/
 *.iml
 out/
+
+compendio.db
+savegame.json
+*.db
