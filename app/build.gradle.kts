@@ -29,6 +29,9 @@ dependencies {
     // This dependency is used by the application.
     implementation(libs.guava)
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("org.hibernate.orm:hibernate-core:6.4.4.Final")
+    implementation("org.xerial:sqlite-jdbc:3.45.2.0")
+    implementation("org.hibernate.orm:hibernate-community-dialects:6.4.4.Final")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
