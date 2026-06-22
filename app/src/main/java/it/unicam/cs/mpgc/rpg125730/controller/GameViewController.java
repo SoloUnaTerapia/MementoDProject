@@ -3,6 +3,8 @@ package it.unicam.cs.mpgc.rpg125730.controller;
 import it.unicam.cs.mpgc.rpg125730.model.Element;
 import it.unicam.cs.mpgc.rpg125730.model.Player;
 import it.unicam.cs.mpgc.rpg125730.model.Shadow;
+import it.unicam.cs.mpgc.rpg125730.persistence.CompendioRepository;
+import it.unicam.cs.mpgc.rpg125730.persistence.entity.DiscoveredShadowEntity;
 import it.unicam.cs.mpgc.rpg125730.service.CombatManager;
 import it.unicam.cs.mpgc.rpg125730.dto.GameStateDTO;
 import it.unicam.cs.mpgc.rpg125730.persistence.PersistenceService;
@@ -13,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 
+import java.util.List;
+
 public class GameViewController {
 
     private final CombatManager combatManager;
@@ -21,6 +25,7 @@ public class GameViewController {
     private Player player;
     private Shadow currentShadow;
     private int roomLevel = 1;
+    private final CompendioRepository compendioRepository;
 
     @FXML private Label roomLabel;
     @FXML private Label playerStatsLabel;
@@ -30,10 +35,11 @@ public class GameViewController {
     @FXML private ProgressBar enemySanityBar;
     @FXML private TextArea combatLogArea;
 
-    public GameViewController(CombatManager combatManager, PersistenceService persistenceService) {
+    public GameViewController(CombatManager combatManager, PersistenceService persistenceService, CompendioRepository compendioRepository) {
         this.combatManager = combatManager;
         this.persistenceService = persistenceService;
         this.shadowFactory = new ShadowFactory();
+        this.compendioRepository = compendioRepository;
     }
 
     @FXML
@@ -51,6 +57,8 @@ public class GameViewController {
 
     private void spawnEnemy() {  //per prova 1 nemico solo fisso
         this.currentShadow = shadowFactory.generateRandomShadow(roomLevel);
+        //registra o aggiorna l'Ombra nel Compendio GLOBALE (Database)
+        compendioRepository.registerEncounter(currentShadow);
     }
 
     // --- AZIONI BOTTONI ---
@@ -203,6 +211,20 @@ public class GameViewController {
         } catch (Exception e) {
             showAlert("Errore", "Nessun salvataggio trovato o file corrotto");
         }
+    }
+
+    @FXML
+    public void onOpenCompendium() {
+        List<DiscoveredShadowEntity> compendio = compendioRepository.getAllDiscoveredShadows();
+
+        StringBuilder sb = new StringBuilder("\n=== COMPENDIO DELLE OMBRE ===\n");
+        for (DiscoveredShadowEntity shadow : compendio) {
+            sb.append(String.format("- %s [Debole: %s | Resiste: %s] | Incontri: %d\n",
+                    shadow.getName(), shadow.getWeakness(), shadow.getResistance(), shadow.getEncounterCount()));
+        }
+        sb.append("=============================\n");
+
+        combatLogArea.appendText(sb.toString());
     }
 
 }

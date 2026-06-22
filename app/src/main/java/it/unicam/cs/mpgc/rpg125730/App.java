@@ -4,6 +4,7 @@ import it.unicam.cs.mpgc.rpg125730.controller.GameViewController;
 import it.unicam.cs.mpgc.rpg125730.persistence.JsonPersistenceService;
 import it.unicam.cs.mpgc.rpg125730.persistence.PersistenceService;
 import it.unicam.cs.mpgc.rpg125730.service.CombatManager;
+import it.unicam.cs.mpgc.rpg125730.persistence.CompendioRepository;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +21,8 @@ public class App extends Application {
         PersistenceService persistenceService =
                 new JsonPersistenceService();
 
+        CompendioRepository compendioRepository = new CompendioRepository();
+
         // 2. Carico l'FXML
         URL fxmlUrl = getClass().getResource("/it/unicam/cs/mpgc/rpg125730/view/gameView.fxml");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
@@ -27,7 +30,7 @@ public class App extends Application {
 
         loader.setControllerFactory(type -> {
             if (type == GameViewController.class) {
-                return new GameViewController(combatManager, persistenceService);
+                return new GameViewController(combatManager, persistenceService, compendioRepository);
             }
             throw new IllegalArgumentException("Controller non previsto: " + type);
         });
