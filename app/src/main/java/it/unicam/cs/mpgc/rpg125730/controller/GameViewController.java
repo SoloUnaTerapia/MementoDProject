@@ -228,14 +228,8 @@ public class GameViewController {
             Shadow temporaryShadow = shadowFactory.generateRandomShadow(roomLevel);
 
             // 2. Ricreiamo il nemico del salvataggio, ma copiamo le debolezze e la foto da quello generato
-            this.currentShadow = new Shadow(
-                    state.enemyName(),
-                    40 + (roomLevel * 5),
-                    8 + roomLevel,
-                    temporaryShadow.getWeakness(),
-                    temporaryShadow.getResistance(),
-                    temporaryShadow.getImagePath()
-            );            int enemyDamage = currentShadow.getMaxSanity() - state.enemySanity();
+            this.currentShadow = shadowFactory.getShadowByName(state.enemyName(), roomLevel);
+            int enemyDamage = currentShadow.getMaxSanity() - state.enemySanity();
             if(enemyDamage > 0) currentShadow.takeDamage(enemyDamage);
 
             if (combatButtonsBox != null) {

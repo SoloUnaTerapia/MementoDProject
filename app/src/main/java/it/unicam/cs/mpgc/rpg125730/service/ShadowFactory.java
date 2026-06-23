@@ -60,4 +60,20 @@ public class ShadowFactory {
 
         return new Shadow(data.name(), scaledHp, scaledDamage, data.weakness(), data.resistance(), data.imagePath());
     }
+
+    /**
+     * Cerca un'ombra specifica per nome nel database e la scala in base alla stanza.
+     * Utilizzato durante il caricamento della partita.
+     */
+    public Shadow getShadowByName(String name, int roomLevel) {
+        ShadowDataDTO data = database.stream()
+                .filter(d -> d.name().equals(name)) // Cerca il nome esatto
+                .findFirst()
+                .orElse(database.get(0)); // Se per assurdo non lo trova, prende il primo
+
+        int scaledHp = data.baseHp() + (roomLevel * 5);
+        int scaledDamage = data.baseDamage() + roomLevel;
+
+        return new Shadow(data.name(), scaledHp, scaledDamage, data.weakness(), data.resistance(), data.imagePath());
+    }
 }
