@@ -129,7 +129,7 @@ public class GameViewController {
     private void processTurn(String playerActionLog, boolean enemyMustAttack) {
         combatLogArea.appendText("\n" + playerActionLog + "\n");
 
-        // 1. Caso Vittoria contro l'Ombra
+        //case Vittoria contro l'Ombra
         if (!currentShadow.isConscious()) {
             combatLogArea.appendText("\n>>> VITTORIA! Hai sconfitto l'Ombra! <<<\n");
             combatLogArea.appendText(">>> Recuperi 15 Focus. Avanzi alla stanza successiva... <<<\n");
@@ -143,12 +143,12 @@ public class GameViewController {
             return; // Se il nemico muore, il turno finisce qui
         }
 
-        // 2. Turno del Nemico
+        //turno del nemico
         if (enemyMustAttack) {
             String enemyLog = combatManager.executeEnemyTurn(currentShadow, player);
             combatLogArea.appendText(enemyLog + "\n");
 
-            // 3. Caso Sconfitta del Giocatore
+            //case Sconfitta del giocatore
             if (!player.isConscious()) {
                 combatLogArea.appendText("\n######################################\n");
                 combatLogArea.appendText("       LA TUA MENTE E' CROLLATA       \n");
@@ -156,10 +156,8 @@ public class GameViewController {
                 combatLogArea.appendText("######################################\n");
                 combatLogArea.appendText("\n-- Clicca su 'Nuova Partita' per riprovare. --\n\n");
 
-                // Disabilita i bottoni di attacco!
+                //disabilita i bottoni
                 combatButtonsBox.setDisable(true);
-
-                // RIMOSSO startNewGame() automatico: ora decide il giocatore quando riavviare
                 return;
             }
         }
@@ -218,7 +216,7 @@ public class GameViewController {
 
             //ripristino le variabili
             this.roomLevel = state.roomLevel();
-            this.player = new Player("Diver", 100, 50); // Ricreo il player e forzo i valori salvati
+            this.player = new Player("Joker", 100, 50); // Ricreo il player e forzo i valori salvati
 
             //forzoi danni per far tornare le barre come prima
             int playerDamage=100 - state.playerSanity();
@@ -236,9 +234,13 @@ public class GameViewController {
                     8 + roomLevel,
                     temporaryShadow.getWeakness(),
                     temporaryShadow.getResistance(),
-                    temporaryShadow.getImagePath() // Passiamo l'immagine!
+                    temporaryShadow.getImagePath()
             );            int enemyDamage = currentShadow.getMaxSanity() - state.enemySanity();
             if(enemyDamage > 0) currentShadow.takeDamage(enemyDamage);
+
+            if (combatButtonsBox != null) {
+                combatButtonsBox.setDisable(false);
+            }
 
             updateUI();
             combatLogArea.appendText("\n[SYSTEM] Partita caricata dalla Stanza " + roomLevel + "\n");
