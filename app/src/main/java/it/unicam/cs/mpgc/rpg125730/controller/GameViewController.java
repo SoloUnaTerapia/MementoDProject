@@ -35,6 +35,7 @@ public class GameViewController {
     @FXML private Label enemyStatsLabel;
     @FXML private ProgressBar enemySanityBar;
     @FXML private TextArea combatLogArea;
+    @FXML private javafx.scene.layout.HBox combatButtonsBox;
     @FXML private ImageView playerImageView;
     @FXML private ImageView enemyImageView;
 
@@ -54,9 +55,13 @@ public class GameViewController {
         this.player = new Player("Joker", 100, 50);
         this.roomLevel = 1;
         spawnEnemy();
-        playerImageView.setImage(new Image(getClass().getResourceAsStream("/images/Joker.png")));
+        playerImageView.setImage(new javafx.scene.image.Image(getClass().getResourceAsStream("/images/Joker.png")));
         updateUI();
-        combatLogArea.setText("Immersione nel Memento... Stanza " + roomLevel + "\n");
+        if (combatButtonsBox != null) {
+            combatButtonsBox.setDisable(false);
+        }
+
+        combatLogArea.setText("Inizio immersione cognitiva... Stanza " + roomLevel + "\n");
     }
 
     private void spawnEnemy() {  //per prova 1 nemico solo fisso
@@ -149,10 +154,12 @@ public class GameViewController {
                 combatLogArea.appendText("       LA TUA MENTE E' CROLLATA       \n");
                 combatLogArea.appendText("              GAME OVER               \n");
                 combatLogArea.appendText("######################################\n");
-                combatLogArea.appendText("\n-- Riavvio del Sistema in corso... --\n\n");
+                combatLogArea.appendText("\n-- Clicca su 'Nuova Partita' per riprovare. --\n\n");
 
-                // Riavvia automaticamente il gioco
-                startNewGame();
+                // Disabilita i bottoni di attacco!
+                combatButtonsBox.setDisable(true);
+
+                // RIMOSSO startNewGame() automatico: ora decide il giocatore quando riavviare
                 return;
             }
         }
@@ -238,6 +245,11 @@ public class GameViewController {
         } catch (Exception e) {
             showAlert("Errore", "Nessun salvataggio trovato o file corrotto");
         }
+    }
+
+    @FXML
+    public void onNewGame() {
+        startNewGame();
     }
 
     @FXML

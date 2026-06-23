@@ -14,6 +14,7 @@
         <VBox spacing="10" alignment="CENTER">
 
             <HBox spacing="10" alignment="CENTER">
+                <Button text="Nuova Partita" onAction="#onNewGame" style="-fx-background-color: #0055aa; -fx-text-fill: white; -fx-font-weight: bold;"/>
                 <Button text="Salva Partita" onAction="#onSaveGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
                 <Button text="Carica Partita" onAction="#onLoadGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
                 <Button text="Apri Compendio" onAction="#onOpenCompendium" style="-fx-background-color: #aa8800; -fx-text-fill: white; -fx-font-weight: bold;"/>
@@ -52,7 +53,7 @@
 
     <!-- BOTTOM: Bottoni -->
     <bottom>
-        <HBox spacing="15" alignment="CENTER">
+        <HBox fx:id="combatButtonsBox" spacing="15" alignment="CENTER">
             <Button text="Attacco Fisico" onAction="#onPhysicalAttack" prefWidth="150" prefHeight="40" style="-fx-background-color: #444444; -fx-text-fill: white;"/>
             <Button text="Skill Fuoco" onAction="#onFireSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #cc0000; -fx-text-fill: white;"/>
             <Button text="Skill Ghiaccio" onAction="#onIceSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #0066cc; -fx-text-fill: white;"/>
