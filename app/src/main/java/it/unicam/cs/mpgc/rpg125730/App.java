@@ -16,14 +16,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // 1. Inizializzo il Service
+        //inizializzo Service
         CombatManager combatManager = new CombatManager();
         PersistenceService persistenceService =
                 new JsonPersistenceService();
 
         CompendioRepository compendioRepository = new CompendioRepository();
 
-        // 2. Carico l'FXML
+        //carico FXML
         URL fxmlUrl = getClass().getResource("/it/unicam/cs/mpgc/rpg125730/view/gameView.fxml");
         FXMLLoader loader = new FXMLLoader(fxmlUrl);
 
@@ -35,11 +35,11 @@ public class App extends Application {
             throw new IllegalArgumentException("Controller non previsto: " + type);
         });
 
-        // 4. Mostro la scena
-        Scene scene = new Scene(loader.load(), 800, 600);
+        //mostro la scena
+        Scene scene = new Scene(loader.load(), 1024, 768);
         primaryStage.setTitle("Memento - Cognitive RPG");
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 

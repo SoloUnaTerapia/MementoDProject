@@ -4,20 +4,23 @@
     "baseHp": 40,
     "baseDamage": 8,
     "weakness": "FIRE",
-    "resistance": "ICE"
+    "resistance": "ICE",
+    "imagePath": "Pixie.jpg"
   },
   {
     "name": "Jack Frost",
     "baseHp": 50,
     "baseDamage": 10,
     "weakness": "FIRE",
-    "resistance": "PHYSICAL"
+    "resistance": "PHYSICAL",
+    "imagePath": "JackFrost.jpg"
   },
   {
     "name": "Incubus",
     "baseHp": 45,
     "baseDamage": 12,
     "weakness": "ICE",
-    "resistance": "COGNITIVE"
+    "resistance": "COGNITIVE",
+    "imagePath": "Incubus.jpg"
   }
 ]

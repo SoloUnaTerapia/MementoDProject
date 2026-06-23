@@ -13,7 +13,7 @@ public class CombatManager {
      */
     public String executePhysicalAttack(CombatEntity attacker, CombatEntity target, int baseDamage) {
         target.takeDamage(baseDamage);
-        return attacker.getName() + " sferra un attacco fisico! Infligge " + baseDamage + " danni a " + target.getName();
+        return attacker.getName() + " sferra un attacco fisico! Infligge " + baseDamage + " danni a " + target.getName() +". "+ attacker.getName()+ " recupera 10 punti focus";
     }
 
     /**
@@ -29,7 +29,7 @@ public class CombatManager {
 
         //calcolo dei moltiplicatori (debolezz/resistenza)
         int finalDamage = baseDamage;
-        String logMessage = player.getName() + " usa un'abilità di tipo " + attackElement;
+        String logMessage = player.getName() + " usa un'abilità di tipo " + attackElement+"\n";
 
         if (target.getWeakness() == attackElement) {
             finalDamage*=2; // Danno raddoppiato

@@ -40,7 +40,7 @@ public class ShadowFactory {
         } catch (Exception e) {
             System.err.println("Errore nel caricamento del database mostri. Uso fallback.");
             //fallback d'emergenza se il file non viene trovato
-            return List.of(new ShadowDataDTO("Ombra Generica", 30, 5, null, null));
+            return List.of(new ShadowDataDTO("Ombra Generica", 30, 5, null, null, null));
         }
     }
 
@@ -58,6 +58,6 @@ public class ShadowFactory {
         int scaledHp= data.baseHp()+(roomLevel * 5);
         int scaledDamage = data.baseDamage()+ roomLevel;
 
-        return new Shadow(data.name(), scaledHp, scaledDamage, data.weakness(), data.resistance());
+        return new Shadow(data.name(), scaledHp, scaledDamage, data.weakness(), data.resistance(), data.imagePath());
     }
 }

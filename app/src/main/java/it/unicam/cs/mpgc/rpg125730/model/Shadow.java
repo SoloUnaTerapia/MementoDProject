@@ -8,14 +8,16 @@ public class Shadow implements CombatEntity {
     private final int baseDamage;
     private final Element weakness;
     private final Element resistance;
+    private final String imagePath;
 
-    public Shadow(String name, int maxSanity, int baseDamage, Element weakness, Element resistance) {
+    public Shadow(String name, int maxSanity, int baseDamage, Element weakness, Element resistance, String imagePath) {
         this.name = name;
         this.maxSanity = maxSanity;
         this.sanity = maxSanity;
         this.baseDamage = baseDamage;
         this.weakness = weakness;
         this.resistance = resistance;
+        this.imagePath = imagePath;
     }
 
     @Override
@@ -53,4 +55,6 @@ public class Shadow implements CombatEntity {
     public boolean isConscious() {
         return this.sanity > 0;
     }
+
+    public String getImagePath() { return imagePath; }
 }

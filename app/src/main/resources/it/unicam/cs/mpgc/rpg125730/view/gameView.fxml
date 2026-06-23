@@ -3,6 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
+<?import javafx.scene.image.ImageView?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="it.unicam.cs.mpgc.rpg125730.controller.GameViewController" style="-fx-background-color: #1a1a1a;">
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
@@ -15,18 +16,13 @@
             <HBox spacing="10" alignment="CENTER">
                 <Button text="Salva Partita" onAction="#onSaveGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
                 <Button text="Carica Partita" onAction="#onLoadGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
-            </HBox>
-
-            <HBox spacing="10" alignment="CENTER">
-                <Button text="Salva Partita" onAction="#onSaveGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
-                <Button text="Carica Partita" onAction="#onLoadGame" style="-fx-background-color: #555555; -fx-text-fill: white;"/>
                 <Button text="Apri Compendio" onAction="#onOpenCompendium" style="-fx-background-color: #aa8800; -fx-text-fill: white; -fx-font-weight: bold;"/>
             </HBox>
             <Label fx:id="roomLabel" text="Stanza: 1" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
 
             <Label fx:id="playerStatsLabel" text="Diver - Sanity | Focus" style="-fx-text-fill: white;"/>
-            <ProgressBar fx:id="playerSanityBar" progress="1.0" prefWidth="300" style="-fx-accent: red;"/>
-            <ProgressBar fx:id="playerFocusBar" progress="1.0" prefWidth="300" style="-fx-accent: blue;"/>
+            <ProgressBar fx:id="playerSanityBar" progress="1.0" prefWidth="300" maxWidth="Infinity" style="-fx-accent: red;"/>
+            <ProgressBar fx:id="playerFocusBar" progress="1.0" prefWidth="300" maxWidth="Infinity" style="-fx-accent: blue;"/>
 
             <Label fx:id="enemyStatsLabel" text="Ombra - Sanity" style="-fx-text-fill: white;"/>
             <ProgressBar fx:id="enemySanityBar" progress="1.0" prefWidth="300" style="-fx-accent: darkred;"/>
@@ -34,13 +30,24 @@
     </top>
 
     <!-- CENTER: Log di combattimento -->
+    <!-- CENTER: Immagini e Log di combattimento -->
     <center>
-        <TextArea fx:id="combatLogArea" editable="false" wrapText="true"
-                  style="-fx-control-inner-background: #000000; -fx-text-fill: #00ffcc; -fx-font-family: 'Consolas'; -fx-font-size: 14px;">
+        <VBox alignment="CENTER" spacing="15">
             <BorderPane.margin>
-                <Insets top="20" bottom="20"/>
+                <Insets top="15" bottom="15"/>
             </BorderPane.margin>
-        </TextArea>
+
+            <!-- Zona Immagini -->
+            <HBox alignment="CENTER" spacing="50">
+                <ImageView fx:id="playerImageView" fitWidth="150" fitHeight="200" preserveRatio="true"/>
+                <Label text="VS" style="-fx-text-fill: red; -fx-font-weight: bold; -fx-font-size: 24px;"/>
+                <ImageView fx:id="enemyImageView" fitWidth="150" fitHeight="200" preserveRatio="true"/>
+            </HBox>
+
+            <!-- Testo di Combattimento -->
+            <TextArea fx:id="combatLogArea" editable="false" wrapText="true" prefHeight="200" maxHeight="Infinity"
+                      style="-fx-control-inner-background: #000000; -fx-text-fill: #00ffcc; -fx-font-family: 'Consolas'; -fx-font-size: 14px;"/>
+        </VBox>
     </center>
 
     <!-- BOTTOM: Bottoni -->
