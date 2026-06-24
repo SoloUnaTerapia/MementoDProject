@@ -34,7 +34,7 @@
   {
     "name": "TungTungSpeed",
     "baseHp": 25,
-    "baseDamage": 40,
+    "baseDamage": 30,
     "weakness": "PHYSICAL",
     "resistance": "COGNITIVE",
     "imagePath": "TungTungSpeed.png"
