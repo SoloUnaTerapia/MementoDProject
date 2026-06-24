@@ -11,10 +11,21 @@ public class CombatManager {
     /**
      * Esegue un attacco fisico base (non costa Focus, danno fisso)
      */
-    public String executePhysicalAttack(CombatEntity attacker, CombatEntity target, int baseDamage) {
-        target.takeDamage(baseDamage);
-        return attacker.getName() + " sferra un attacco fisico! Infligge " + baseDamage + " danni a " + target.getName() +". "+ attacker.getName()+ " recupera 10 punti focus";
+    public String executePhysicalAttack(CombatEntity attacker, Shadow target, int baseDamage) {
+        int finalDamage = baseDamage;
+        String logMessage=attacker.getName() + " sferra un attacco fisico!";
+        if (target.getWeakness() == Element.PHYSICAL) {
+
+            finalDamage *= 2;
+            logMessage+=" Colpo critico, colpita la debolezza\n ";
+
+
+        }
+        target.takeDamage(finalDamage);
+        logMessage+=" Infligge " + finalDamage + " danni a " + target.getName() + ". " + attacker.getName() + " recupera 10 punti focus";
+        return  logMessage;
     }
+
 
     /**
      * Esegue un attacco cognitivo/elementale, consuma focus e bverifica debolezze/resistenze

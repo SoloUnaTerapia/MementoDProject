@@ -5,7 +5,7 @@
     "baseDamage": 8,
     "weakness": "FIRE",
     "resistance": "ICE",
-    "imagePath": "Pixie.jpg"
+    "imagePath": "Pixie.png"
   },
   {
     "name": "Jack Frost",
@@ -13,7 +13,7 @@
     "baseDamage": 10,
     "weakness": "FIRE",
     "resistance": "PHYSICAL",
-    "imagePath": "JackFrost.jpg"
+    "imagePath": "JackFrost.png"
   },
   {
     "name": "Incubus",
@@ -21,7 +21,23 @@
     "baseDamage": 12,
     "weakness": "ICE",
     "resistance": "COGNITIVE",
-    "imagePath": "Incubus.jpg"
+    "imagePath": "Incubus.png"
+  },
+  {
+    "name": "Caparezza Piramide",
+    "baseHp": 80,
+    "baseDamage": 15,
+    "weakness": "COGNITIVE",
+    "resistance": "FIRE",
+    "imagePath": "CaparezzaPiramide.png"
+  },
+  {
+    "name": "TungTungSpeed",
+    "baseHp": 25,
+    "baseDamage": 40,
+    "weakness": "PHYSICAL",
+    "resistance": "COGNITIVE",
+    "imagePath": "TungTungSpeed.png"
   }
 
 ]
