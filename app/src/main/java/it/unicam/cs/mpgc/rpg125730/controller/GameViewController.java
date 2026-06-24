@@ -129,12 +129,19 @@ public class GameViewController {
     private void processTurn(String playerActionLog, boolean enemyMustAttack) {
         combatLogArea.appendText("\n" + playerActionLog + "\n");
 
-        //case Vittoria contro l'Ombra
+        //case vittoria contro l'Ombra
         if (!currentShadow.isConscious()) {
             combatLogArea.appendText("\n>>> VITTORIA! Hai sconfitto l'Ombra! <<<\n");
-            combatLogArea.appendText(">>> Recuperi 15 Focus. Avanzi alla stanza successiva... <<<\n");
+            int sanityBonus = 10;
+            int focusBonus = 5;
+            player.levelUp(sanityBonus, focusBonus);
 
+            combatLogArea.appendText(String.format(">>> LA TUA MENTE SI ESPANDE: Max Sanity +%d, Max Focus +%d <<<\n", sanityBonus, focusBonus));
+            int focus=15;
             player.recoverFocus(15);
+            combatLogArea.appendText("Recuperi "+focus+" punti Focus\n" +"Avanzi alla stanza successiva... \n");
+
+
             roomLevel++;
             spawnEnemy();
 
@@ -227,7 +234,7 @@ public class GameViewController {
             //ricreo il nemico
             Shadow temporaryShadow = shadowFactory.generateRandomShadow(roomLevel);
 
-            // 2. Ricreiamo il nemico del salvataggio, ma copiamo le debolezze e la foto da quello generato
+
             this.currentShadow = shadowFactory.getShadowByName(state.enemyName(), roomLevel);
             int enemyDamage = currentShadow.getMaxSanity() - state.enemySanity();
             if(enemyDamage > 0) currentShadow.takeDamage(enemyDamage);

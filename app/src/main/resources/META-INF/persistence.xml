@@ -7,7 +7,7 @@
         <class>it.unicam.cs.mpgc.rpg125730.persistence.entity.DiscoveredShadowEntity</class>
 
         <properties>
-            <!-- connessione a database SQLite locale (singolo file chiamato compendio.db) -->
+            <!-- connessione a database SQLite locale  -->
             <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:compendio.db"/>
 

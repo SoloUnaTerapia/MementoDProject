@@ -55,9 +55,8 @@
     <bottom>
         <HBox fx:id="combatButtonsBox" spacing="15" alignment="CENTER">
             <Button text="Attacco Fisico" onAction="#onPhysicalAttack" prefWidth="150" prefHeight="40" style="-fx-background-color: #444444; -fx-text-fill: white;"/>
-            <Button text="Skill Fuoco" onAction="#onFireSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #cc0000; -fx-text-fill: white;"/>
-            <Button text="Skill Ghiaccio" onAction="#onIceSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #0066cc; -fx-text-fill: white;"/>
-            <!-- NUOVO BOTTONE -->
+            <Button text="Abilità Fuoco" onAction="#onFireSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #cc0000; -fx-text-fill: white;"/>
+            <Button text="Abilità Ghiaccio" onAction="#onIceSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #0066cc; -fx-text-fill: white;"/>
             <Button text="Sovraccarico Cog." onAction="#onCognitiveSkill" prefWidth="150" prefHeight="40" style="-fx-background-color: #660099; -fx-text-fill: white; -fx-font-weight: bold;"/>
 
             <Button text="Stabilizza" onAction="#onHeal" prefWidth="150" prefHeight="40" style="-fx-background-color: #009933; -fx-text-fill: white;"/>

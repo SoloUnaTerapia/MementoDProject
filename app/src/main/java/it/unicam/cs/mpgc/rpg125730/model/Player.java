@@ -3,9 +3,9 @@ package it.unicam.cs.mpgc.rpg125730.model;
 public class Player implements CombatEntity {
     private final String name;
     private int sanity;
-    private final int maxSanity;
+    private int maxSanity;
     private int focus;
-    private final int maxFocus;
+    private int maxFocus;
 
     public Player(String name, int maxSanity, int maxFocus) {
         this.name = name;
@@ -56,8 +56,17 @@ public class Player implements CombatEntity {
         if (this.sanity > maxSanity) this.sanity = maxSanity;
     }
 
+
     @Override
     public boolean isConscious() {
         return this.sanity > 0;
+    }
+
+    public void levelUp(int sanityBonus, int focusBonus) {
+        this.maxSanity += sanityBonus;
+        this.maxFocus += focusBonus;
+
+        this.sanity += sanityBonus;
+        this.focus += focusBonus;
     }
 }
