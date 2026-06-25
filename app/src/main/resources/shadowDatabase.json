@@ -34,10 +34,18 @@
   {
     "name": "TungTungSpeed",
     "baseHp": 25,
-    "baseDamage": 30,
+    "baseDamage": 25,
     "weakness": "PHYSICAL",
     "resistance": "COGNITIVE",
     "imagePath": "TungTungSpeed.png"
+  },
+  {
+    "name": "Nirvana",
+    "baseHp": 150,
+    "baseDamage": 0,
+    "weakness": "PHYSICAL",
+    "resistance": "COGNITIVE",
+    "imagePath": "Nirvana.png"
   }
 
 ]
