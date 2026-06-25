@@ -1,0 +1,63 @@
+/* --- sfondo principale --- */
+.root {
+    -fx-background-color: #1a1a1a;
+}
+
+/* --- etichette --- */
+.label {
+    -fx-text-fill: white;
+}
+
+.room-label {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+
+.vs-label {
+    -fx-text-fill: red;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+/* --- Console di Testo (Log di combattimento) --- */
+.text-area {
+    -fx-control-inner-background: #000000;
+    -fx-text-fill: #00ffcc;
+    -fx-font-family: 'Consolas', monospace;
+    -fx-font-size: 14px;
+}
+
+/* --- Barre della Vita e Focus --- */
+.sanity-bar-player .bar {
+    -fx-background-color: red;
+}
+
+.focus-bar-player .bar {
+    -fx-background-color: blue;
+}
+
+.sanity-bar-enemy .bar {
+    -fx-background-color: darkred;
+}
+
+/* --- Bottoni Base --- */
+.button {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand; /* Cambia il cursore quando ci passi sopra, come richiesto dalle slide! */
+}
+
+/* effetto hover per tutti i bottoni */
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+/* --- colora i bottoni --- */
+.btn-new-game { -fx-background-color: #0055aa; }
+.btn-save-load { -fx-background-color: #555555; }
+.btn-compendium { -fx-background-color: #aa8800; }
+.btn-physical { -fx-background-color: #444444; }
+.btn-fire { -fx-background-color: #cc0000; }
+.btn-ice { -fx-background-color: #0066cc; }
+.btn-cognitive { -fx-background-color: #660099; }
+.btn-heal { -fx-background-color: #009933; }
