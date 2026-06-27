@@ -33,7 +33,7 @@ cd MementoDProject
 
 ## 🤖 Uso di strumenti di AI
 
-Durante lo sviluppo di questo progetto, strumenti di intelligenza artificiale sono stati utilizzati esclusivamente come supporto tecnico e prettamente estetico, mantenendo la totale paternità manuale sull'architettura e sulla logica del software.
+Durante lo sviluppo di questo progetto, strumenti di intelligenza artificiale sono stati utilizzati come supporto tecnico e principalmente per aspetti estetici del gioco, mantenendo la totale paternità manuale sull'architettura e sulla logica del software.
 
 Nello specifico, l'AI è stata utilizzata per:
 
