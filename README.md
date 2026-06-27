@@ -10,7 +10,7 @@ Il progetto implementa un sistema di combattimento basato su affinità elemental
 ### Prerequisiti
 - Java 25 o più recente
 - Gradle 9.1.0 o più recente
-- git
+- Git
 
 ### Istruzioni per il Download
 
