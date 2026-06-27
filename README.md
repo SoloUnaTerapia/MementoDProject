@@ -1,6 +1,6 @@
 # 📌 Memento - Cognitive RPG
 
-**Memento** è un gioco di ruolo (RPG) a turni procedurale sviluppato in Java ispirato al celeberrimo brand Persona(Atlus).
+**Memento** è un gioco di ruolo (RPG) a turni procedurale sviluppato in Java ispirato al celeberrimo JRPG "Persona" (Atlus).
 Il progetto implementa un sistema di combattimento basato su affinità elementali, gestione delle risorse (Sanity e Focus) e doppia persistenza dei dati (JSON e Database Relazionale tramite Hibernate), ponendo il focus sulla corretta applicazione del pattern MVC e dei principi SOLID.
 
 ---
