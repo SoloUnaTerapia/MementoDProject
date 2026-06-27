@@ -1,6 +1,6 @@
 # 📌 Memento - Cognitive RPG
 
-**Memento** è un gioco di ruolo (RPG) a turni procedurale sviluppato in Java.
+**Memento** è un gioco di ruolo (RPG) a turni procedurale sviluppato in Java ispirato al celeberrimo JRPG "Persona" (Atlus).
 Il progetto implementa un sistema di combattimento basato su affinità elementali, gestione delle risorse (Sanity e Focus) e doppia persistenza dei dati (JSON e Database Relazionale tramite Hibernate), ponendo il focus sulla corretta applicazione del pattern MVC e dei principi SOLID.
 
 ---
@@ -8,8 +8,9 @@ Il progetto implementa un sistema di combattimento basato su affinità elemental
 ## 🚀 Come eseguire il progetto
 
 ### Prerequisiti
-- Java 25
-- Gradle
+- Java 25 o più recente
+- Gradle 9.1.0 o più recente
+- Git
 
 ### Istruzioni per il Download
 
@@ -32,7 +33,7 @@ cd MementoDProject
 
 ## 🤖 Uso di strumenti di AI
 
-Durante lo sviluppo di questo progetto, strumenti di intelligenza artificiale sono stati utilizzati esclusivamente come supporto tecnico e prettamente estetico, mantenendo la totale paternità manuale sull'architettura e sulla logica del software.
+Durante lo sviluppo di questo progetto, strumenti di intelligenza artificiale sono stati utilizzati come supporto tecnico e principalmente per aspetti estetici del gioco, mantenendo la totale paternità manuale sull'architettura e sulla logica del software.
 
 Nello specifico, l'AI è stata utilizzata per:
 
@@ -46,7 +47,7 @@ La progettazione del Dominio,la suddivisione nei layer dell'architettura MVC e l
 
 
 
-📌 Per una documentazione tecnica dettagliata su Architettura, Responsabilità delle Classi, Pattern SOLID e Persistenza, fare riferimento alla Wiki del repository.
+📌 Per una documentazione tecnica dettagliata fare riferimento alla **Wiki del repository**.
 
 
 
