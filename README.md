@@ -47,7 +47,7 @@ La progettazione del Dominio,la suddivisione nei layer dell'architettura MVC e l
 
 
 
-📌 Per una documentazione tecnica dettagliata su Architettura, Responsabilità delle Classi, Pattern SOLID e Persistenza, fare riferimento alla Wiki del repository.
+📌 Per una documentazione tecnica dettagliata fare riferimento alla **Wiki del repository**.
 
 
 
