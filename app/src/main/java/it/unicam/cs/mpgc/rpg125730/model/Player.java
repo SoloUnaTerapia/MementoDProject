@@ -1,5 +1,9 @@
 package it.unicam.cs.mpgc.rpg125730.model;
-
+/**
+ * Rappresenta l'entità controllata dall'utente nel dominio del gioco.
+ * La sua responsabilità esclusiva è mantenere la coerenza del proprio stato vitale
+ * (Sanity) ed energetico (Focus), impedendo valori invalidi
+ */
 public class Player implements CombatEntity {
     private final String name;
     private int sanity;

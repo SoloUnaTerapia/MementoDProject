@@ -10,7 +10,12 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
+/**
+ * Implementazione concreta del servizio di persistenza
+ * Ha la singola responsabilità di serializzare e deserializzare lo stato di gioco
+ * su un file di testo locale in formato JSON,
+ * avvalendosi della libreria Gson.
+ */
 public class JsonPersistenceService implements PersistenceService {
 
     private static final String FILEPATH = "savegame.json";

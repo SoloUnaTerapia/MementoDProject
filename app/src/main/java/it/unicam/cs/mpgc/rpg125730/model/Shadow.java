@@ -1,5 +1,10 @@
 package it.unicam.cs.mpgc.rpg125730.model;
-
+/**
+ * Rappresenta un'entità nemica
+ * Oltre a gestire il proprio stato vitale, incapsula le informazioni relative
+ * al danno base e alle affinità elementali (debolezze e resistenze) utilizzate
+ * dal motore di combattimento
+ */
 public class Shadow implements CombatEntity {
     private final String name;
     private int sanity;

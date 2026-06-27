@@ -17,7 +17,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.util.List;
-
+/**
+ * Controller principale del pattern MVC per l'interfaccia JavaFX
+ * Funge da intermediario; cattura gli eventi di input dell'utente,
+ * delega l'esecuzione della logica di business e di salvataggio ai rispettivi Service
+ * (tramite Dependency Injection) e aggiorna la GUI
+ */
 public class GameViewController {
 
     private final CombatManager combatManager;
@@ -64,9 +69,9 @@ public class GameViewController {
         combatLogArea.setText("Inizio immersione cognitiva... Stanza " + roomLevel + "\n");
     }
 
-    private void spawnEnemy() {  //per prova 1 nemico solo fisso
+    private void spawnEnemy() {
         this.currentShadow = shadowFactory.generateRandomShadow(roomLevel);
-        //registra o aggiorna l'Ombra nel Compendio GLOBALE (Database)
+        //registra o aggiorna l'Ombra nel compendio
         compendioRepository.registerEncounter(currentShadow);
     }
 
@@ -83,7 +88,7 @@ public class GameViewController {
     public void onFireSkill() {
         int cost = 10;
         if (player.getFocus() < cost) {
-            combatLogArea.appendText("\nNon hai abbastanza Focus per usare Skill Fuoco!\n");
+            combatLogArea.appendText("\nNon hai abbastanza Focus per usare abilità Fuoco\n");
             return; //non faccio andare avanti il turno
         }
         String log = combatManager.executeElementalAttack(player, currentShadow, Element.FIRE, cost, 20);
@@ -94,7 +99,7 @@ public class GameViewController {
     public void onIceSkill() {
         int cost = 10;
         if (player.getFocus() < cost) {
-            combatLogArea.appendText("\nNon hai abbastanza Focus per usare Skill Ghiaccio!\n");
+            combatLogArea.appendText("\nNon hai abbastanza Focus per usare abilità Ghiaccio\n");
             return; //non faccio andare avanti il turno
         }
         String log = combatManager.executeElementalAttack(player, currentShadow, Element.ICE, cost, 20);
@@ -105,7 +110,7 @@ public class GameViewController {
     public void onCognitiveSkill() {
         int cost = 20;
         if (player.getFocus() < cost) {
-            combatLogArea.appendText("\nNon hai abbastanza Focus per il Sovraccarico Cognitivo!\n");
+            combatLogArea.appendText("\nNon hai abbastanza Focus per il sovraccarico cognitivo\n");
             return;
         }
        
@@ -131,7 +136,7 @@ public class GameViewController {
 
         //case vittoria contro l'Ombra
         if (!currentShadow.isConscious()) {
-            combatLogArea.appendText("\n>>> VITTORIA! Hai sconfitto l'Ombra! <<<\n");
+            combatLogArea.appendText("\n>>> VITTORIA! Hai sconfitto l'Ombra <<<\n");
             int sanityBonus = 10;
             int focusBonus = 5;
             player.levelUp(sanityBonus, focusBonus);
@@ -161,7 +166,7 @@ public class GameViewController {
                 combatLogArea.appendText("       LA TUA MENTE E' CROLLATA       \n");
                 combatLogArea.appendText("              GAME OVER               \n");
                 combatLogArea.appendText("######################################\n");
-                combatLogArea.appendText("\n-- Clicca su 'Nuova Partita' per riprovare. --\n\n");
+                combatLogArea.appendText("\n-- Clicca su 'Nuova Partita' per riprovare --\n\n");
 
                 //disabilita i bottoni
                 combatButtonsBox.setDisable(true);
