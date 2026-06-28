@@ -1,6 +1,6 @@
 package it.unicam.cs.mpgc.rpg125730.model;
 /**
- * Definisce le funzionalità e i comportamenti di un generico combattente nel sistema di gioco.
+ * Definisce le funzionalità e i comportamenti di un generico combattente nel sistema di gioco
  */
 public interface CombatEntity {
     String getName();

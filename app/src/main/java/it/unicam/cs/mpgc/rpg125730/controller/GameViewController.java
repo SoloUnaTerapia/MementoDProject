@@ -152,7 +152,7 @@ public class GameViewController {
 
             combatLogArea.appendText("\n--- Entri nella Stanza " + roomLevel + " ---\n");
             updateUI();
-            return; // Se il nemico muore, il turno finisce qui
+            return; //se il nemico muore, il turno finisce qui
         }
 
         //turno del nemico
@@ -228,7 +228,7 @@ public class GameViewController {
 
             //ripristino le variabili
             this.roomLevel = state.roomLevel();
-            this.player = new Player("Joker", 100, 50); // Ricreo il player e forzo i valori salvati
+            this.player = new Player("Joker", 100, 50); //ricreo il player e forzo i valori salvati
 
             //forzoi danni per far tornare le barre come prima
             int playerDamage=100 - state.playerSanity();
